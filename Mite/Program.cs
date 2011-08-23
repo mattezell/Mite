@@ -288,6 +288,10 @@ namespace Mite
                         Console.WriteLine("mite cleaned successfully");
                     }
                     return;
+                default:
+                    Console.WriteLine("Invalid command. See 'mite /?' for help.");
+                    break;
+
             }
             if (resultingVersion != null)
             {
