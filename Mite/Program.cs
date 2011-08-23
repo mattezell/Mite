@@ -36,19 +36,22 @@ namespace Mite
             if (args[0] == "/?")
             {
                 Console.WriteLine("Mite - Simple and painless SQL migrations.\n\n");
-                Console.WriteLine("mite.exe [-v][init [filename]][-c [filename]][-d [destination]][update/stepup/stepdown]\n\n");
+                Console.WriteLine("mite.exe [-v][init [filename]][-c [filename]][-d [destination]]\n\t[status/update/stepup/stepdown/scratch/clean]\n\n");
                 Console.WriteLine("Options are as follows:");
                 Console.WriteLine("-v\t\tReturns the current version of Mite");
                 Console.WriteLine(
-                    "-d\t\tSpecifies the destination version to migrate to.\n\t\t(can be greater than migrations available)");
-                Console.WriteLine("update\t\tRuns all migrations greater than the current version");
+                    "init\t\tCreates and opens the initial up file and makes.\n\t\tCreates the _migrations table and makes and entry into the \n\t\t_migrations table for the initial up.");
+                Console.WriteLine("\t\taccepts optional target filename");
                 Console.WriteLine("-c\t\tCreates and launches the new migration files");
-                Console.WriteLine("\t\tfilename(optional): desired filename of migration script");
+                Console.WriteLine("\t\taccepts optional target filename");
+                Console.WriteLine("-d\t\tSpecifies the destination version to migrate to.\n\t\t(can be greater than migrations available)");
+                Console.WriteLine("update\t\tRuns all migrations greater than the current version");
                 Console.WriteLine("stepup\t\tExecutes one migration file greater than the current version");
                 Console.WriteLine("stepdown\tExecutes one migration file less than the current version");
-                Console.WriteLine(
-                    "init\t\tCreates and opens the initial up file and makes.\n\t\tCreates the _migrations table and makes and entry into the \n\t\t_migrations table for the initial up.");
-                Console.WriteLine("\t\tfilename(optional): desired filename of migration script");
+                Console.WriteLine("status\t\tDisplay current database and migration state");
+                Console.WriteLine("scratch\t\tDrops all tables and runs all migrations.");
+                Console.WriteLine("clean\t\tRemoves mite.config and drops the _migrations table.");
+                
                 return;
             }
           if (args[0] == "-c")
